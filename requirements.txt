@@ -5,3 +5,4 @@ razorpay
 stripe
 replicate
 pywhatkit
+python-dotenv
