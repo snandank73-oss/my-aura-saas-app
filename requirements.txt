@@ -1,8 +1,5 @@
 streamlit
 requests
 pandas
-razorpay
-stripe
-replicate
-pywhatkit
+Pillow
 python-dotenv
