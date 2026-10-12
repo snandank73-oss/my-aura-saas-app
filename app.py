@@ -22,10 +22,13 @@ st.set_page_config(
     page_title="AuraAI Global Telegram-Driven Autonomous SaaS", page_icon="🤖", layout="wide"
 )
 
-# Brand Assets Directory setup
+# Brand Assets Directory setup with Safe Check
 BRAND_ASSETS_DIR = "brand_assets"
 if not os.path.exists(BRAND_ASSETS_DIR):
-    os.makedirs(BRAND_ASSETS_DIR)
+    try:
+        os.makedirs(BRAND_ASSETS_DIR, exist_ok=True)
+    except Exception:
+        pass
 
 # Custom CSS for Clean UI
 st.markdown(
@@ -149,14 +152,20 @@ uploaded_user_photo = st.sidebar.file_uploader(
 
 saved_photo_path = os.path.join(BRAND_ASSETS_DIR, "user_profile_upload.png")
 if uploaded_user_photo is not None:
-    with open(saved_photo_path, "wb") as f:
-        f.write(uploaded_user_photo.getbuffer())
-    st.sidebar.success("✅ Brand asset uploaded successfully!")
-    st.sidebar.image(Image.open(saved_photo_path), caption="Active Asset", width=140)
+    try:
+        with open(saved_photo_path, "wb") as f:
+            f.write(uploaded_user_photo.getbuffer())
+        st.sidebar.success("✅ Brand asset uploaded successfully!")
+        st.sidebar.image(Image.open(saved_photo_path), caption="Active Asset", width=140)
+    except Exception:
+        pass
 else:
     if os.path.exists(saved_photo_path):
         st.sidebar.info("ℹ️ Using saved brand asset.")
-        st.sidebar.image(Image.open(saved_photo_path), caption="Saved Asset", width=140)
+        try:
+            st.sidebar.image(Image.open(saved_photo_path), caption="Saved Asset", width=140)
+        except Exception:
+            pass
     else:
         st.sidebar.warning("⚠️ No brand photo uploaded yet.")
 
