@@ -294,7 +294,7 @@ if mode == "User Portal":
                         try {{ var rzp_usd = new Razorpay(options); rzp_usd.open(); }} catch (e) {{ alert(e.message); }}
                         </script>
                     """
-                    st.components.v1.html(razorpay_usd_html, height=0)
+                    st.components.v1.html(razorpay_usd_html, height=450, width=600)
                     st.success(f"Razorpay USD Card Checkout Triggered for {gp_name} ($USD)!")
 
         st.markdown("---")
@@ -323,7 +323,7 @@ if mode == "User Portal":
                         try {{ var rzp_usd = new Razorpay(options); rzp_usd.open(); }} catch (e) {{ alert(e.message); }}
                         </script>
                     """
-                    st.components.v1.html(razorpay_usd_html, height=0)
+                    st.components.v1.html(razorpay_usd_html, height=450, width=600)
                     st.success(f"Razorpay USD Card Checkout Triggered for {gp_name} ($USD)!")
 
     # =========================================================
@@ -365,7 +365,7 @@ if mode == "User Portal":
                         try {{ var rzp1 = new Razorpay(options); rzp1.open(); }} catch (e) {{ alert(e.message); }}
                         </script>
                     """
-                    st.components.v1.html(razorpay_html, height=0)
+                    st.components.v1.html(razorpay_html, height=450, width=600)
                     st.success(f"Razorpay INR Triggered for {p_name}!")
 
 # ==========================================
